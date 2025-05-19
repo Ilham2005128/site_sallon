@@ -59,7 +59,7 @@ nav ul li a:hover {
 }
 .img{
     text-align: center;
-    width: 95%;
+    width: 50%;
     height: auto;
 }
 h2{
@@ -103,3 +103,50 @@ input {
     cursor: pointer;
     text-align: end;}
 
+@media screen and (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+  }
+
+  nav ul li {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #Liste,
+  .container {
+    width: 100%;
+    padding: 10px;
+    margin: 10px auto;
+    border-radius: 15px;
+  }
+
+  #Élégance {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  input, button {
+    font-size: 1rem;
+    padding: 8px;
+  }
+
+  .img img {
+    width: 10%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+}

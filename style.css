@@ -89,13 +89,13 @@ input:focus {
 }
 
 button {
-  background-color: palevioletred;
+  background-color: deeppink;
   color: white;
   cursor: pointer;
 }
 
 .modifier, .supprimer {
-  background-color: palevioletred;
+  background-color: deeppink;
   color: white;
   margin: 5px;
   padding: 8px 12px;

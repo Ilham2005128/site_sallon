@@ -1,95 +1,76 @@
- //afiche d une alert au cours de telechrgemnt de doc
- window.alert ("mer7ba bikom")
- document.addEventListener('DOMContentLoaded', function() {
- let clients = [];
+window.alert("Bienvenue sur le site !");
 
- // Fonction pour ajouter un client
- function ajouterClient(nom, tel, besoin, mail) {
-     let nouveauClient = {
-         nom: nom,
-         tel: tel,
-         besoin: besoin,
-         mail: mail
-     };
-     clients.push(nouveauClient);
-     afficherClients();
- }
+document.addEventListener('DOMContentLoaded', function () {
+  let clients = [];
 
- // afficher tous les clients
- function afficherClients() {
-     let listeClients = document.getElementById('listeClients');
-     listeClients.innerHTML = '';
-     clients.forEach(function(client, index) {
-         let li = document.createElement('li');
-         li.textContent = client.nom + ' - ' + client.tel + ' - ' + client.besoin + ' - ' + client.mail;
-         let modifierBtn = document.createElement('button');
-         modifierBtn.textContent = 'Modifier';
-         modifierBtn.classList.add('modifier');
-         modifierBtn.dataset.index = index;
-         let supprimerBtn = document.createElement('button');
-         supprimerBtn.textContent = 'Supprimer';
-         supprimerBtn.classList.add('supprimer');
-         supprimerBtn.dataset.index = index;
-         li.appendChild(modifierBtn);
-         li.appendChild(supprimerBtn);
-         listeClients.appendChild(li);
-     });
- }
+  function ajouterClient(nom, tel, besoin, mail) {
+    clients.push({ nom, tel, besoin, mail });
+    afficherClients();
+  }
 
-// Ajouter un client lorsque le formulaire est soumis
- document.getElementById('formClient').addEventListener('submit', function(event) {
-     event.preventDefault();
-     let nom = document.getElementById('nom').value;
-     let tel = document.getElementById('tel').value;
-     let besoin = document.getElementById('besoin').value;
-     let mail = document.getElementById('mail').value;
-     ajouterClient(nom, tel, besoin, mail);
-     document.getElementById('formClient').reset();
- });
+  function afficherClients() {
+    let liste = document.getElementById('listeClients');
+    liste.innerHTML = '';
+    clients.forEach((client, index) => {
+      let li = document.createElement('li');
+      li.textContent = `${client.nom} - ${client.tel} - ${client.besoin} - ${client.mail}`;
+      
+      let modifierBtn = document.createElement('button');
+      modifierBtn.textContent = 'Modifier';
+      modifierBtn.className = 'modifier';
+      modifierBtn.dataset.index = index;
 
- // Supprimer un client lorsque le bouton "Supprimer" est cliqué
- document.addEventListener('click', function(event) {
-     if (event.target.classList.contains('supprimer')) {
-         let index = event.target.dataset.index;
-         clients.splice(index, 1);
-         afficherClients();
-     }
- });
+      let supprimerBtn = document.createElement('button');
+      supprimerBtn.textContent = 'Supprimer';
+      supprimerBtn.className = 'supprimer';
+      supprimerBtn.dataset.index = index;
 
- // Modifier les informations du client lorsque le bouton "Modifier" est cliqué
- document.addEventListener('click', function(event) {
-     if (event.target.classList.contains('modifier')) {
-         let index = event.target.dataset.index;
-         let client = clients[index];
-         document.getElementById('nom').value = client.nom;
-         document.getElementById('tel').value = client.tel;
-         document.getElementById('besoin').value = client.besoin;
-         document.getElementById('mail').value = client.mail;
-         let ajouterBtn = document.getElementById('ajouter');
-         ajouterBtn.textContent = 'Sauvegarder';
-         ajouterBtn.dataset.mode = 'modifier';
-         ajouterBtn.dataset.index = index;
-     }
- });
+      li.appendChild(modifierBtn);
+      li.appendChild(supprimerBtn);
+      liste.appendChild(li);
+    });
+  }
 
- // Sauvegarder les modifications du client ou ajouter un nouveau client
- document.getElementById('ajouter').addEventListener('click', function() {
-     let mode = this.dataset.mode;
-     if (mode === 'modifier') {
-         let index = this.dataset.index;
-         clients[index].nom = document.getElementById('nom').value;
-         clients[index].tel = document.getElementById('tel').value;
-         clients[index].besoin = document.getElementById('besoin').value;
-         clients[index].mail = document.getElementById('mail').value;
-         this.textContent = 'Ajouter';
-         this.dataset.mode = '';
-     } else {
-         let nom = document.getElementById('nom').value;
-         let tel = document.getElementById('tel').value;
-         let besoin = document.getElementById('besoin').value;
-         let mail = document.getElementById('mail').value;
-         ajouterClient(nom, tel, besoin, mail);
-     }
-     document.getElementById('formClient').reset();
- });
+  document.getElementById('formClient').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const nom = document.getElementById('nom').value;
+    const tel = document.getElementById('tel').value;
+    const besoin = document.getElementById('besoin').value;
+    const mail = document.getElementById('mail').value;
+    const ajouterBtn = document.getElementById('ajouter');
+
+    if (ajouterBtn.dataset.mode === 'modifier') {
+      let index = ajouterBtn.dataset.index;
+      clients[index] = { nom, tel, besoin, mail };
+      ajouterBtn.textContent = 'Ajouter';
+      ajouterBtn.removeAttribute('data-mode');
+      ajouterBtn.removeAttribute('data-index');
+    } else {
+      ajouterClient(nom, tel, besoin, mail);
+    }
+
+    this.reset();
+  });
+
+  document.addEventListener('click', function (e) {
+    if (e.target.classList.contains('supprimer')) {
+      let index = e.target.dataset.index;
+      clients.splice(index, 1);
+      afficherClients();
+    }
+
+    if (e.target.classList.contains('modifier')) {
+      let index = e.target.dataset.index;
+      let client = clients[index];
+      document.getElementById('nom').value = client.nom;
+      document.getElementById('tel').value = client.tel;
+      document.getElementById('besoin').value = client.besoin;
+      document.getElementById('mail').value = client.mail;
+
+      let ajouterBtn = document.getElementById('ajouter');
+      ajouterBtn.textContent = 'Sauvegarder';
+      ajouterBtn.dataset.mode = 'modifier';
+      ajouterBtn.dataset.index = index;
+    }
+  });
 });

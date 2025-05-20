@@ -1,152 +1,133 @@
-   
- #Liste{
-    max-width: 1500px;
-    margin: 0 auto;
-    float: right;
-    padding: 20px;
-    border-radius: 50px;
-    border-color: rgb(2, 2, 2);
-    box-shadow: 0 0 10px rgba(213, 34, 168, 0.1);
- }   
-*{
-    margin: 20;
-    padding: 20;
-    background-color:pink;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: larger;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', serif;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    float: left;
-    padding: 20px;
-    border-radius: 50px;
-    border-color: rgb(2, 2, 2);
-    box-shadow: 0 0 10px rgba(213, 34, 168, 0.1);
+body {
+  background-color: #ffe4e1;
+  padding: 20px;
 }
-#Élégance{
-  font-style: oblique;text-align: left;
-  color:rgb(255, 20, 147) ;
-  font-size: 200%; font-weight: bold;text-transform: uppercase
-} 
 
+header {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+#Élégance {
+  font-style: oblique;
+  color: deeppink;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
 
 nav {
   background-color: rgb(216, 192, 255);
-  text-align: end;
- 
-}
-nav ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
+  padding: 10px;
 }
 
-nav ul li {
-  display: inline;
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 20px;
 }
 
 nav ul li a {
-  display: inline-block;
   color: white;
-  padding: 15px 20px;
   text-decoration: none;
+  padding: 10px 15px;
 }
 
 nav ul li a:hover {
-  background-color: rgb(255, 20, 147);
+  background-color: deeppink;
+  border-radius: 5px;
 }
-.img{
-    text-align: center;
-    width: 40%;
-    height: 50%;
-}
-h2{
+
+.img {
   text-align: center;
-    text-transform: uppercase;
-    color: rgb(0, 0, 0);
-    width: 100%;
-  font-style: oblique;
+  margin: 20px 0;
+}
+
+.img img {
+  width: 40%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.container h2, #Liste h2 {
+  text-align: center;
+  margin-bottom: 15px;
   text-decoration: underline;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-input {
-    width: 100%;
-    background-color: beige;
- }
-
- input:focus {
-    background-color: palevioletred;
- }
-#ajouter {
-    text-align: center;
-    width: 100%;
-    color: azure;
-    background-color :palevioletred;
-    cursor: pointer;
-}
-.modifier{
-    text-align: center;
-    width: auto;
-    color: azure;
-    background-color :palevioletred;
-    cursor: pointer;
-    text-align: end;
+  color: #333;
 }
 
-.supprimer{
-    text-align: center;
-    width: auto;
-    color: azure;
-    background-color :palevioletred;
-    cursor: pointer;
-    text-align: end;}
+input, button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+input:focus {
+  background-color: #ffe6f0;
+}
+
+button {
+  background-color: palevioletred;
+  color: white;
+  cursor: pointer;
+}
+
+.modifier, .supprimer {
+  background-color: palevioletred;
+  color: white;
+  margin: 5px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#Liste {
+  max-width: 700px;
+  margin: 30px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
 
 @media screen and (max-width: 768px) {
-  body {
-    padding: 10px;
+  .img img {
+    width: 80%;
   }
 
   nav ul {
     flex-direction: column;
-    align-items: flex-start;
-    padding: 0;
+    align-items: center;
   }
 
-  nav ul li {
-    display: block;
-    width: 70%;
-    margin-bottom: 10px;
+  .container, #Liste {
+    width: 90%;
   }
 
-  #Liste,
-  .container {
-    width: 100%;
-    padding: 10px;
-    margin: 10px auto;
-    border-radius: 15px;
-  }
-
-  #Élégance {
-    font-size: 1.5rem;
-    text-align: center;
-  }
-
-  input, button {
+  button, input {
     font-size: 1rem;
-    padding: 8px;
-  }
-
-  .img img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    display: block;
-    margin: 10px auto;
-  }
-
-  h2 {
-    font-size: 1.2rem;
   }
 }

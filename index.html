@@ -1,55 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>site sallon </title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ilham Élégance</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <link rel="stylesheet" href="style.css">
-    <!--html de document -->
-    <p id="Élégance"> Bienvenue chez Ilham Élégance & Ecthétique</p>
 
-    <nav> 
-        <h1><ul>
-            <li><strong><a href="accueil">Accueil</strong></a></li>
-            <li> <strong><a href="services">Services</strong></a></li>
-            <li> <strong><a href="rendez vous">À Propos</strong></a></li>
-          </ul></h1>
-      </nav>
-      
-      <div class="img"><img src="sallon.jpg" alt=""> </div>
- <br><br><br><br><br>
-   <!--crud-->
-<div class="container">
+  <header>
+    <h1 id="Élégance">Bienvenue chez Ilham Élégance & Esthétique</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">À Propos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="img">
+    <img src="sallon.jpg" alt="Salon de beauté">
+  </div>
+
+  <main class="container">
     <h2>Ajouter un client</h2>
     <form id="formClient">
-        <label for="nom">Nom:</label>
-        <input type="text" id="nom" placeholder="entre votre nom"required> <br>  <br>
-        
-        <label for="tel">Téléphone:</label>
-        <input type="text" id="tel" placeholder="+212-00-00-00-00"required><br> <br>
+      <label for="nom">Nom :</label>
+      <input type="text" id="nom" placeholder="Entrez votre nom" required>
 
-        <label for="besoin">Besoin:</label>
-        <input type="text" id="besoin" placeholder="besoin dans le sallon "  required> <br> <br>
+      <label for="tel">Téléphone :</label>
+      <input type="tel" id="tel" placeholder="+212-00-00-00-00" required>
 
-        <label for="mail">Email:</label>
-        <input type="email" id="mail"placeholder="votre email" ><br><br>
+      <label for="besoin">Besoin :</label>
+      <input type="text" id="besoin" placeholder="Votre besoin au salon" required>
 
-        <button type="submit" id="ajouter">Ajouter</button>
+      <label for="mail">Email :</label>
+      <input type="email" id="mail" placeholder="Votre email" required>
+
+      <button type="submit" id="ajouter">Ajouter</button>
     </form>
-</div>
-<div id="Liste">
-    <h2>Liste des clients</h2>
-    <ul id="listeClients"></ul></div>
+  </main>
 
-<style>
- 
-</style>
-<script src="crud.js">
-   
-</script>
+  <section id="Liste">
+    <h2>Liste des clients</h2>
+    <ul id="listeClients"></ul>
+  </section>
+
+  <script src="crud.js"></script>
 </body>
 </html>

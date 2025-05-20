@@ -59,7 +59,7 @@ nav ul li a:hover {
 }
 .img{
     text-align: center;
-    width: 50%;
+    width: 40%;
     height: auto;
 }
 h2{
@@ -139,7 +139,7 @@ input {
   }
 
   .img img {
-    width: 10%;
+    width: 50%;
     max-width: 300px;
     height: auto;
     display: block;

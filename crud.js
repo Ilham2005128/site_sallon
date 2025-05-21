@@ -15,17 +15,12 @@ document.addEventListener('DOMContentLoaded', function () {
       let li = document.createElement('li');
       li.textContent = `${client.nom} - ${client.tel} - ${client.besoin} - ${client.mail}`;
       
-      let modifierBtn = document.createElement('button');
-      modifierBtn.textContent = 'Modifier';
-      modifierBtn.className = 'modifier';
-      modifierBtn.dataset.index = index;
 
       let supprimerBtn = document.createElement('button');
       supprimerBtn.textContent = 'Supprimer';
       supprimerBtn.className = 'supprimer';
       supprimerBtn.dataset.index = index;
 
-      li.appendChild(modifierBtn);
       li.appendChild(supprimerBtn);
       liste.appendChild(li);
     });
